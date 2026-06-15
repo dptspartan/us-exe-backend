@@ -1,0 +1,18 @@
+-- Partner sticky-note push (uses same user_push_tokens as sparks).
+-- Run in Supabase SQL Editor after sparks-push-setup.sql.
+
+-- ========== EDGE FUNCTION ==========
+--   supabase functions deploy send-sticky-note-push --no-verify-jwt
+--
+-- ========== DATABASE WEBHOOK ==========
+--   Database → Webhooks → Create hook
+--   Name: sticky-note-push
+--   Table: public.sticky_notes
+--   Events: Insert
+--   Type: Supabase Edge Function
+--   Function: send-sticky-note-push
+--
+-- ========== VERIFY ==========
+--   1. Both phones have rows in user_push_tokens
+--   2. Partner A pins a note while B's app is force-stopped
+--   3. B sees: "{Name} left a note for you"
