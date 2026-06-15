@@ -1,3 +1,4 @@
+-- DEPRECATED: schema is in supabase/migrations/20240615000000_initial_schema.sql.
 -- Partner sticky-note push (uses same user_push_tokens as sparks).
 -- Run in Supabase SQL Editor after sparks-push-setup.sql.
 

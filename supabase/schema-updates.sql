@@ -1,3 +1,4 @@
+-- DEPRECATED: included in supabase/migrations/20240615000000_initial_schema.sql.
 -- Optional schema updates for Us.exe features
 -- Run in Supabase SQL Editor
 

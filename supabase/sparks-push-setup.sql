@@ -1,3 +1,5 @@
+-- DEPRECATED: user_push_tokens + sparks are in supabase/migrations/20240615000000_initial_schema.sql.
+-- Webhook + edge function deploy steps remain in README / PUSH_SETUP.md.
 -- Required for push when app is closed. Run in Supabase SQL Editor.
 
 create table if not exists public.user_push_tokens (

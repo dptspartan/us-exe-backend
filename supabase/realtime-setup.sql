@@ -1,3 +1,4 @@
+-- DEPRECATED: use supabase/migrations/20240615000000_initial_schema.sql (supabase db push).
 -- Run this in Supabase SQL Editor if partner updates don't appear live.
 -- Dashboard: Database → Replication should also show these tables enabled.
 

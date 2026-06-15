@@ -1,0 +1,49 @@
+# Us.exe Supabase project — https://supabase.com/docs/guides/cli/config
+project_id = "us-exe"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "storage", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+major_version = 15
+
+[db.migrations]
+enabled = true
+schema_paths = []
+
+[db.seed]
+enabled = true
+sql_paths = ["./seed.sql"]
+
+[realtime]
+enabled = true
+
+[storage]
+enabled = true
+file_size_limit = "50MiB"
+
+[auth]
+enabled = true
+site_url = "http://127.0.0.1:3000"
+additional_redirect_urls = ["https://127.0.0.1:3000"]
+enable_signup = false
+jwt_expiry = 3600
+enable_refresh_token_rotation = true
+
+[auth.email]
+enable_signup = false
+enable_confirmations = false
+
+[edge_runtime]
+enabled = true
+policy = "per_worker"
+inspector_port = 8083
+
+[analytics]
+enabled = false

@@ -1,0 +1,10 @@
+-- Optional seed for local dev / staging after you create auth users in the dashboard.
+-- Replace the UUIDs with real auth.users ids from Authentication → Users.
+--
+--   insert into public.couples (partner_1_id, partner_2_id, partner_1_name, partner_2_name)
+--   values (
+--     '00000000-0000-0000-0000-000000000001',
+--     '00000000-0000-0000-0000-000000000002',
+--     'Alex',
+--     'Sam'
+--   );
