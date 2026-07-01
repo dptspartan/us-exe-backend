@@ -24,7 +24,7 @@ const readline = require('readline');
 
 const root = join(__dirname, '..');
 const ENV_FILES = { dev: '.env.dev', prod: '.env.prod' };
-const FUNCTIONS = ['send-spark-push', 'send-sticky-note-push'];
+const FUNCTIONS = ['send-spark-push', 'send-sticky-note-push', 'get-couple-cek'];
 const REQUIRED_KEYS = ['SUPABASE_PROJECT_REF', 'SUPABASE_URL', 'SUPABASE_ANON_KEY'];
 
 function fail(msg) {
@@ -125,6 +125,13 @@ function deployTarget(target, { db = true, functions = true, secrets = true } = 
     run(bin, ['secrets', 'set', `EXPO_ACCESS_TOKEN=${env.EXPO_ACCESS_TOKEN}`]);
   } else if (secrets && !env.EXPO_ACCESS_TOKEN) {
     console.log('[deploy-supabase] Skipping EXPO_ACCESS_TOKEN (not set in ' + rel + ')');
+  }
+
+  if (secrets && env.E2EE_MASTER_KEY) {
+    console.log('\n[deploy-supabase] secrets set E2EE_MASTER_KEY\n');
+    run(bin, ['secrets', 'set', `E2EE_MASTER_KEY=${env.E2EE_MASTER_KEY}`]);
+  } else if (secrets) {
+    console.warn('[deploy-supabase] WARNING: E2EE_MASTER_KEY not set in ' + rel);
   }
 
   console.log(`\n[deploy-supabase] ✓ ${target} complete\n`);
